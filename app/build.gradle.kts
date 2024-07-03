@@ -33,11 +33,14 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
 
-    //dependencia de SQlite "
+    //dependencia de SQlite (Kotlin)
     implementation("androidx.sqlite:sqlite-ktx:2.4.0")
 
     implementation("androidx.core:core-ktx:1.13.1")
