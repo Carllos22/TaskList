@@ -4,4 +4,7 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="negative_red">#6F0D0D</color>
+    <color name="yellow_background">#E3D667</color>
+    <color name="purple_text">#1B0444</color>
+
 </resources>

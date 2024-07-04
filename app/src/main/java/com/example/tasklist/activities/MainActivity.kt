@@ -8,6 +8,8 @@ import com.example.tasklist.adapters.TaskAdapter
 import com.example.tasklist.data.Task
 import com.example.tasklist.data.TaskDAO
 import com.example.tasklist.databinding.ActivityMainBinding
+//import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.DividerItemDecoration
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -23,10 +25,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         taskDAO = TaskDAO(this)
         adapter = TaskAdapter(emptyList(), {
-            Toast.makeText(this, "Click en tarea: ${taskList[it].name}", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Click on task: ${taskList[it].name}", Toast.LENGTH_SHORT).show()
         }, {
             taskDAO.delete(taskList[it])
-            Toast.makeText(this, "Tarea borrada correctamente", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Task successfully deleted", Toast.LENGTH_SHORT).show()
             loadData()
         }, {
             val task = taskList[it]
@@ -36,7 +38,13 @@ class MainActivity : AppCompatActivity() {
         })
 
         binding.recyclerView.adapter = adapter
+        //binding.recyclerView.layoutManager = GridLayoutManager(this, 2)
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
+
+        val dividerItemDecoration = DividerItemDecoration(this, LinearLayoutManager.VERTICAL)
+        binding.recyclerView.addItemDecoration(dividerItemDecoration)
+
+
         binding.addTaskButton.setOnClickListener {
             val intent = Intent(this, TaskActivity::class.java)
             startActivity(intent)

@@ -1,5 +1,6 @@
 package com.example.tasklist.data
 
+import android.media.Image
 import android.provider.BaseColumns
 
 data class Task(var id: Int, var name: String, var done: Boolean = false) {

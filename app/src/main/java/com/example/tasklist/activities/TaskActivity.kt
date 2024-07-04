@@ -24,7 +24,7 @@ class TaskActivity : AppCompatActivity() {
             val taskName = binding.nameEditTextView.text.toString()
             val task = Task(-1, taskName)
             taskDAO.insert(task)
-            Toast.makeText(this, "Tarea guardada correctamente", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Task saved successfully", Toast.LENGTH_SHORT).show()
             finish()
         }
     }

@@ -6,20 +6,33 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.TaskActivity">
+    tools:context=".activities.TaskActivity"
+    android:background="@color/yellow_background"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/imageViewTask"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginVertical="8dp"
+        android:src="@drawable/ic_task_svg"
+        android:layout_gravity="center"/>
 
     <EditText
         android:id="@+id/nameEditTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Que hay que hacer?"
-        android:textColor="@color/black"/>
+        android:hint="Write your task"
+        android:textColor="@color/purple_text"
+        android:textSize="32dp"/>
 
     <Button
         android:id="@+id/saveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Save"
-        android:layout_gravity="bottom|end"/>
+        android:backgroundTint="@color/black"
+        android:layout_gravity="bottom|center"
+        android:gravity="center"/>
 
 </LinearLayout>
