@@ -18,6 +18,12 @@
         android:src="@drawable/ic_task_svg"
         android:layout_gravity="center"/>
 
+    <Spinner
+        android:id="@+id/categorySpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="28dp" />
+
     <EditText
         android:id="@+id/nameEditTextView"
         android:layout_width="match_parent"
