@@ -6,10 +6,12 @@ import android.content.Context
 import android.util.Log
 import com.example.tasklist.data.entities.Category
 import com.example.tasklist.utils.DatabaseManager
+import com.example.tasklist.data.entities.Task
 
 class CategoryDAO (context: Context) {
 
     private var databaseManager: DatabaseManager = DatabaseManager(context)
+    private var taskDAO: TaskDAO = TaskDAO(context)
 
     fun insert(category: Category): Category {
         val db = databaseManager.writableDatabase
@@ -57,13 +59,13 @@ class CategoryDAO (context: Context) {
         val db = databaseManager.writableDatabase
 
         val cursor = db.query(
-            Category.TABLE_NAME,                         // The table to query
-            Category.COLUMN_NAMES,       // The array of columns to return (pass null to get all)
+            Category.TABLE_NAME,
+            Category.COLUMN_NAMES,
             "${DatabaseManager.COLUMN_NAME_ID} = $id",                        // The columns for the WHERE clause
-            null,                    // The values for the WHERE clause
-            null,                        // don't group the rows
-            null,                         // don't filter by row groups
-            null                         // The sort order
+            null,
+            null,
+            null,
+            null
         )
 
         var category: Category? = null
@@ -89,13 +91,13 @@ class CategoryDAO (context: Context) {
         val db = databaseManager.writableDatabase
 
         val cursor = db.query(
-            Category.TABLE_NAME,                 // The table to query
-            Category.COLUMN_NAMES,     // The array of columns to return (pass null to get all)
-            null,                // The columns for the WHERE clause
-            null,          // The values for the WHERE clause
-            null,                   // don't group the rows
-            null,                   // don't filter by row groups
-            null               // The sort order
+            Category.TABLE_NAME,
+            Category.COLUMN_NAMES,
+            null,
+            null,
+            null,
+            null,
+            null
         )
 
         val list: MutableList<Category> = mutableListOf()

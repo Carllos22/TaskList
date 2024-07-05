@@ -104,4 +104,34 @@ class TaskDAO(context: Context) {
         db.close()
         return tasks
     }
+
+    fun findByCategory(categoryId: Int): List<Task> {
+        val db = databaseManager.readableDatabase
+
+        val projection = Task.COLUMN_NAMES
+
+        val cursor = db.query(
+            Task.TABLE_NAME,
+            projection,
+            "${Task.COLUMN_NAME_CATEGORY} = $categoryId",
+            null,
+            null,
+            null,
+            null
+        )
+
+        val tasks = mutableListOf<Task>()
+        while (cursor.moveToNext()) {
+            val id = cursor.getInt(cursor.getColumnIndexOrThrow(DatabaseManager.COLUMN_NAME_ID))
+            val name = cursor.getString(cursor.getColumnIndexOrThrow(Task.COLUMN_NAME_TITLE))
+            val done = cursor.getInt(cursor.getColumnIndexOrThrow(Task.COLUMN_NAME_DONE)) == 1
+            val task = Task(id, name, done)
+            tasks.add(task)
+        }
+
+        cursor.close()
+        db.close()
+
+        return tasks
+    }
 }

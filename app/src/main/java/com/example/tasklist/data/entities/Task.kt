@@ -2,7 +2,11 @@ package com.example.tasklist.data.entities
 
 import com.example.tasklist.utils.DatabaseManager
 
-data class Task(var id: Int, var name: String, var done: Boolean = false, var categoryId: Int = 0) {
+data class Task(
+    var id: Int,
+    var name: String,
+    var done: Boolean = false,
+    var categoryId: Int = 0) {
 
     companion object {
         const val TABLE_NAME = "Tasks"

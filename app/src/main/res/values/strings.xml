@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">TaskList</string>
+    <string name="title_activity_create_category">CreateCategoryActivity</string>
 </resources>

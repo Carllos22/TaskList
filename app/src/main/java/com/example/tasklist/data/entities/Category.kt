@@ -2,8 +2,13 @@ package com.example.tasklist.data.entities
 
 import com.example.tasklist.utils.DatabaseManager
 
-class Category (var id: Int, var name: String, var color: String, var icon: Int) {
-
+data class Category (
+    var id: Int,
+    var name: String,
+    var color: String,
+    var icon: Int,
+    var tasks: MutableList<Task> = mutableListOf()
+)  {
     companion object {
         const val TABLE_NAME = "Categories"
         const val COLUMN_NAME_CATEGORY = "name"
